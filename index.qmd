@@ -1,0 +1,220 @@
+---
+title: "Functions and Control Flow"
+date-format: long
+author: "Jeffrey Morgan-Harrisskitt"
+project:
+  type: website
+format: 
+  revealjs:
+    menu: true
+    controls: false
+    transition: slide
+    background-transition: fade
+    preview-links: true
+    embed-resources: true
+    navigation-mode: linear
+    progress: true
+    hide-inactive-cursor: true
+    footer: 'Jeffrey Morgan-Harrisskitt **||** Functions and Control Flow **||** March 1, 2024'
+---
+
+# Introduction
+
+This session is designed to help you become familiar with some of the fundamental elements of programming. These will help you to better utilise whatever your language of choice happens to be, making you a better and more efficient programmer.
+
+## Languages used {.smaller}
+
+Examples given in this session will be made using at least two of the following languages. You don't need to know all of them, one will do!
+
+::: columns
+::: {.column width="33.3%"}
+![](images/python.png){fig-align="center" width="100"}
+
+One of the most popular languages in the world, Python is a general purpose programming language that can be used for [data science](https://jakevdp.github.io/PythonDataScienceHandbook/){.target_blank}, [web development](https://www.fullstackpython.com/web-development.html), [animation](https://vagon.io/blog/using-python-in-blender/) and everything in between.
+:::
+
+::: {.column width="33.3%"}
+![](images/r.jpg){fig-align="center" width="120"}
+
+Currently the most popular mathematical/statistical language, R is widely used to [generate](https://www.modernstatisticswithr.com/), [visualise](https://r-graph-gallery.com/) and [share](https://quarto.org/) work among data analysts and scientists across the world, as well as [in academia.](https://stackoverflow.blog/2017/10/10/impressive-growth-r/)
+:::
+
+::: {.column width="33.3%"}
+![](images/js.png){fig-align="center" width="120"}
+
+The programming language that powers the web, JavaScript also underpins the frameworks data analysts and scientists use to share their work - like [Shiny](https://shiny.posit.co/) or [this very presentation](https://quarto.org/docs/presentations/revealjs/).
+:::
+:::
+
+# Part 1: Functions
+
+A function is just a block of code that carries out a particular task. They exist in every programming language you will come across, and if you have written code at any point then chances are you have used them without knowing it.
+
+## Anatomy of a function - Python
+
+Functions work very similarly in whatever language you might use, i.e. they have the same component parts. What changes is the syntax used to describe those.
+
+For example, in python a function is created using the following syntax:
+
+![](images/Function_anatomy-py-01.png){fig-align="center" width="400"}
+
+## Anatomy of a function - R
+
+If we look at the anatomy of a R function instead, we can see that the same things are present - we still need to declare that we are creating a function, we still need to assign a name, we can still provide parameters and we have a body that does the work too.
+
+![](images/functions_r-01.png){fig-align="center" width="400"}
+
+## Anatomy of a function - JavaScript
+
+Finally, let's look at a JavaScript function. It is similar to both the Python and R function declarations, but also has some notable differences from either. However, the differences are cosmetic - once you know how to dissect and interpret a function in one language, it is much easier to do that in whatever syntax they are presented.
+
+![](images/function-declaration-js.png){fig-align="center" width="400"}
+
+## Differences in anatomy
+
+So what are the differences between these? The order in which things are done and the notation used: In Python we start by declaring that we want to create a function, whereas in R we assign the function's name first. But despite these differences they are doing the same thing.
+
+```{python echo="TRUE"}
+def simpleAddition(a, b):
+  return print(a + b)
+
+simpleAddition(5, 6)
+```
+
+```{r echo="TRUE"}
+simpleAddition <- function(a, b){
+  return(print(a + b))
+}
+
+simpleAddition(5, 6)
+```
+
+## Built-in functions
+
+All languages come with oven-ready functions available - you may have even used some already!
+
+The code on this slide shows how you find the length of a string in Python and R respectively. These are built-in functions, but they operate exactly the same as ones you make yourself - they are called, they take an argument and they return a result.
+
+```{python echo=TRUE}
+str_len = len("Function lovers unite")
+print(str_len)
+```
+
+```{r echo=TRUE}
+str_len <- nchar("Function lovers unite")
+print(str_len)
+```
+
+## Time for some coding
+
+We're about to switch to VS Code. If you are reviewing this after the event, the relevant files should be with this presentation.
+
+## Questions on functions?
+
+![](images/questions.avif){fig-align="center"}
+
+# Part 2: Control Flow
+
+Control flow is the order in which the various elements that make up our program are executed. Just because something is written first does not mean that it is used first! Remember that the computer does not know what you want to do, and the nature of the languages we want to learn means that you need to provide explicit instructions to make it carry out the tasks you want to achieve.
+
+## Conditional Statements
+
+You will likely be familiar with these sorts of logical statements already - IF something is true then do this, ELSE do this. These tell the computer to execute certain parts of the code, provided specified conditions are met. They are the core of decision-making in programming, and as such are vital if you want to make good use of your chosen language.
+
+![](images/Else-Statements.png){fig-align="center" width="400"}
+
+## Conditional Statements - Python
+
+As with functions, conditional statements work very similarly in whatever language you are using - what changes is the syntax. Python uses its standard colon + indentation to indicate what code will be executed.
+
+![](images/python-if-else.png){fig-align="center" width="400"}
+
+## Conditional Statements - R
+
+The logic for R is the same, but it also follows the language's regular syntax. This means that your conditions will be contained in brackets instead of preceding a colon and statements are contained in curly brackets.
+
+![](images/r-if-else-statement-syntax.png){fig-align="center" width="400"}
+
+## Conditional Statements - JavaScript
+
+JavaScript actually has the exact same syntax as R, which makes it nice and easy to follow if you are used to that already. Just bear in mind that how you declare variables and comments is different, as per the example here.
+
+![](images/js-if-else-statement.webp){fig-align="center" width="400"}
+
+## Loops
+
+Loops are simply an instruction to repeatedly execute a block of code until a specified condition is met, a process known as **Iteration**.
+
+Loops are essential to efficient and organised programming and exist in almost every programming language, so you will almost certainly come across them as you become more proficient with your language of choice.
+
+## For loops
+
+For loops exist to allow iteration to occur a specific number of times, iterating through things that have a definite length or size. If you have 1000 things that need evaluating, rather than write 1000 lines of code you would use one of these.
+
+They are probably the loop you will use the majority of the time, because the usual things you will need to repeatedly act on will be an array/list/vector etc.
+
+## While loops
+
+While loops will run until a condition is satisfied - they do not have to have a defined number of iterations. This is useful when you don't know or can't determine the number of iterations, want to give users a choice to end a program or any other circumstance where your program is required to run without stopping until something happens.
+
+But be careful - if the condition is not met the loop could potentially run infinitely, which can cause a lot of problems in some contexts.
+
+## Loops in Python
+
+::: columns
+::: {.column width="50%"}
+#### For loop
+
+The language to call loops is very standard across most languages. ![](images/for_python.jpg){width="400"}
+:::
+
+::: {.column width="50%"}
+#### While loop
+
+As always, what changes is the syntax used in your language of choice. ![](images/python_while.png){width="400"}
+:::
+:::
+
+## Loops in R
+
+::: columns
+::: {.column width="50%"}
+#### For loop
+
+As with conditional statements, loops in R follow the same logic as the Python equivalent. ![](images/r-for-loop-syntax.png)
+:::
+
+::: {.column width="50%"}
+#### While loop
+
+The difference is that you need to use brackets and curly brackets, rather than colons and indentation. ![](images/r-while-loop-syntax.png)
+:::
+:::
+
+## Loops in JavaScript
+
+::: columns
+::: {.column width="50%"}
+#### For loop
+
+With JavaScript you need to do a little more work to set off your for loop. ![](images/js_For%20Loop.webp)
+:::
+
+::: {.column width="50%"}
+#### While loop
+
+This is not true of while loops, which are exactly the same as their R equivalents. ![](images/js_while.jpg)
+:::
+:::
+
+## Time for some more coding
+
+We're about to switch to VS Code. If you are reviewing this after the event, the relevant files should be with this presentation.
+
+## Questions on control flow?
+
+![](images/questions_2.jpg){fig-align="center"}
+
+# Thanks for coming
+
+![](images/thanks.avif){fig-align="center"}
